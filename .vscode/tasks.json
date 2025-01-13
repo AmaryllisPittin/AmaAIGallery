@@ -1,0 +1,26 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "compile",
+        "type": "process",
+        "command": "javac",
+        "args": [
+          "-d",
+          "bin",
+          "src/PhotoGalleryApp.java",
+          "--module-path",
+          "C:\\Users\\amapa\\javafx-sdk-21.0.5\\lib",
+          "--add-modules",
+          "javafx.controls,javafx.fxml"
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+      }
+    ]
+  }
+  
+  
+  

@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Launch JavaFX App",
+      "request": "launch",
+      "mainClass": "PhotoGalleryApp",
+      "vmArgs": "--module-path C:/Users/amapa/javafx-sdk-21.0.5/lib --add-modules javafx.controls,javafx.fxml",
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}
+
+  
