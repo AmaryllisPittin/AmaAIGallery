@@ -90,6 +90,9 @@ public class PhotoGalleryApp extends Application {
         root = new BorderPane();
         root.setStyle("-fx-background-color: black;");
 
+        Image icon = new Image("img/logo.png");
+        primaryStage.getIcons().add(icon);
+
         GridPane gallery = createGallery();
 
         ScrollPane scrollPane = new ScrollPane(gallery);
