@@ -2,6 +2,7 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -84,16 +85,19 @@ public class PhotoGalleryApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-
         primaryStage.setTitle("AmaIAGallery");
 
-        // Initialisation de root
         root = new BorderPane();
         root.setStyle("-fx-background-color: #fff;");
 
-        // Créer la galerie
         GridPane gallery = createGallery();
-        root.setCenter(gallery);
+
+        ScrollPane scrollPane = new ScrollPane(gallery);
+        scrollPane.setFitToWidth(true);
+        scrollPane.setPannable(true);
+        scrollPane.setStyle("-fx-background: transparent;");
+
+        root.setCenter(scrollPane);
 
         root.widthProperty().addListener((obs, oldVal, newVal) -> {
             double widthPerImage = (newVal.doubleValue() - 30) / 2;
