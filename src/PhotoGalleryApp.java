@@ -88,7 +88,7 @@ public class PhotoGalleryApp extends Application {
         primaryStage.setTitle("AmaIAGallery");
 
         root = new BorderPane();
-        root.setStyle("-fx-background-color: #fff;");
+        root.setStyle("-fx-background-color: white");
 
         GridPane gallery = createGallery();
 
@@ -96,6 +96,7 @@ public class PhotoGalleryApp extends Application {
         scrollPane.setFitToWidth(true);
         scrollPane.setPannable(true);
         scrollPane.setStyle("-fx-background: transparent;");
+        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 
         root.setCenter(scrollPane);
 
