@@ -16,16 +16,70 @@ public class PhotoGalleryApp extends Application {
     private static final String[] IMAGE_PATHS = {
             "img/biblic1.png",
             "img/biblic2.png",
+            "img/bijoux1.png",
+            "img/casc1.png",
+            "img/casc2.png",
+            // "img/cavern1.png",
+            // "img/chesterfield1.png",
+            // "img/chesterfield2.png",
+            // "img/chesterfield3.png",
+            // "img/chesterfield4.png",
+            "img/colomb1.png",
+            "img/colomb2.png",
+            "img/couronne1.png",
+            "img/cross1.png",
+            "img/cross2.png",
+            "img/cross3.png",
             "img/fire.png",
+            "img/fire2.png",
+            "img/fire3.png",
+            // "img/fire4.png",
             "img/galaxy1.png",
+            "img/indian1.png",
+            // "img/jurassicroom1.png",
+            // "img/key1.png",
+            // "img/key2.png",
+            // "img/key3.png",
+            "img/kingdom1.png",
             "img/knife1.png",
+            // "img/knight1.png",
+            // "img/knight2.png",
+            "img/knight3.png",
             "img/lamp.png",
+            "img/landscape1.png",
             "img/lavalamp1.png",
             "img/lavalamp2.png",
             "img/lavalamp3.png",
             "img/lavalamp4.png",
+            // "img/livingroom1.png",
+            // "img/magic1.png",
+            "img/miror.png",
+            // "img/pharaon.png",
+            "img/portrait1.png",
+            "img/portrait2.png",
+            // "img/precious1.png",
+            "img/space1.png",
+            "img/space2.png",
+            "img/space3.png",
+            // "img/space4.png",
+            // "img/space5.png",
+            "img/space6.png",
+            "img/space7.png",
+            // "img/sword1.png",
+            "img/temple1.png",
+            "img/temple2.png",
+            "img/temple3.png",
+            "img/temple4.png",
+            "img/temple5.png",
+            "img/temple6.png",
+            "img/temple7.png",
             "img/throne1.png",
-            "img/throne2.png"
+            "img/throne2.png",
+            // "img/throne3.png",
+            "img/throne4.png",
+            "img/throne5.png",
+            "img/tree1.png",
+            // "img/woodroom1.png",
     };
 
     @Override
@@ -35,17 +89,15 @@ public class PhotoGalleryApp extends Application {
 
         // Initialisation de root
         root = new BorderPane();
-        root.setStyle("-fx-background-color: #2E2E2E;");
+        root.setStyle("-fx-background-color: #fff;");
 
         // Créer la galerie
         GridPane gallery = createGallery();
         root.setCenter(gallery);
 
-        // Ajouter un Listener pour ajuster la taille des images lorsque la fenêtre est
-        // redimensionnée
         root.widthProperty().addListener((obs, oldVal, newVal) -> {
-            double widthPerImage = (newVal.doubleValue() - 30) / 4; // 30 pour les marges et espaces
-            double heightPerImage = widthPerImage * 3 / 4; // Ratio 4:3
+            double widthPerImage = (newVal.doubleValue() - 30) / 2;
+            double heightPerImage = widthPerImage * 2 / 4;
 
             for (int i = 0; i < gallery.getChildren().size(); i++) {
                 ImageView imageView = (ImageView) gallery.getChildren().get(i);
@@ -54,8 +106,7 @@ public class PhotoGalleryApp extends Application {
             }
         });
 
-        // Créer la scène
-        Scene scene = new Scene(root, 800, 600);
+        Scene scene = new Scene(root, 500, 600);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
@@ -70,24 +121,20 @@ public class PhotoGalleryApp extends Application {
         int column = 0;
         int row = 0;
 
-        // Ajouter les images au GridPane
         for (String imagePath : IMAGE_PATHS) {
             Image image = new Image(imagePath);
             ImageView thumbnail = new ImageView(image);
 
-            // Ajuster les dimensions initiales
-            thumbnail.setFitWidth(150); // Largeur initiale, ajustée dynamiquement
-            thumbnail.setFitHeight(112.5); // Hauteur initiale pour un ratio 4:3
+            thumbnail.setFitWidth(450);
+            thumbnail.setFitHeight(337.5);
             thumbnail.setPreserveRatio(true);
 
-            // Ajouter un événement de clic pour agrandir l'image
             thumbnail.setOnMouseClicked(event -> openImageInFullScreen(image));
 
-            // Ajouter la vignette à la grille
             gallery.add(thumbnail, column, row);
 
             column++;
-            if (column == 4) { // Passer à la ligne suivante après 4 images
+            if (column == 4) {
                 column = 0;
                 row++;
             }
