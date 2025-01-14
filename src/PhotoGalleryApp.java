@@ -158,13 +158,13 @@ public class PhotoGalleryApp extends Application {
 
         ImageView imageView = new ImageView(image);
         imageView.setPreserveRatio(true);
-        imageView.setFitWidth(600);
-        imageView.setFitHeight(600);
+        imageView.setFitWidth(800);
+        imageView.setFitHeight(800);
 
         StackPane root = new StackPane(imageView);
         root.setStyle("-fx-background-color: black;");
 
-        Scene scene = new Scene(root, 600, 600);
+        Scene scene = new Scene(root, 800, 800);
         fullscreenStage.setScene(scene);
         fullscreenStage.show();
     }
