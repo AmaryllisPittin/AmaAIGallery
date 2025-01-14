@@ -88,14 +88,14 @@ public class PhotoGalleryApp extends Application {
         primaryStage.setTitle("AmaIAGallery");
 
         root = new BorderPane();
-        root.setStyle("-fx-background-color: white");
+        root.setStyle("-fx-background-color: black;");
 
         GridPane gallery = createGallery();
 
         ScrollPane scrollPane = new ScrollPane(gallery);
         scrollPane.setFitToWidth(true);
         scrollPane.setPannable(true);
-        scrollPane.setStyle("-fx-background: transparent;");
+        scrollPane.setStyle("-fx-background: white;");
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 
         root.setCenter(scrollPane);
@@ -133,6 +133,7 @@ public class PhotoGalleryApp extends Application {
             thumbnail.setFitWidth(450);
             thumbnail.setFitHeight(337.5);
             thumbnail.setPreserveRatio(true);
+            thumbnail.setCursor(javafx.scene.Cursor.HAND);
 
             thumbnail.setOnMouseClicked(event -> openImageInFullScreen(image));
 
